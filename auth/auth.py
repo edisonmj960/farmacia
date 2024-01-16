@@ -13,6 +13,10 @@ import re
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_app import *
 import babel.dates
+from flask_mail import Mail
+from flask_mail import Mail, Message
+from email.utils import parseaddr
+
 
 
 # Rutas para login y recuperacion de cuenta
@@ -165,10 +169,21 @@ def registerUser():
             cursor.close()
             msg = 'Cuenta creada correctamente!'
 
-        return render_template('login.html',**dict(translations.items()))
-        
-    return render_template('login.html',**dict(translations.items()))
+           
+# Envío del correo de bienvenida
+        welcome_msg = Message('Bienvenido a nuestra aplicación', sender='tu_correo@example.com', recipients=[correo])
+        welcome_msg.body = "¡Gracias por registrarte en nuestra aplicación!"
+        html_content = render_template('correo_registro.html', username=nombre)
+        welcome_msg.html = html_content
 
+        try:
+            mail.send(welcome_msg)
+        except Exception as e:
+            print(f"Error al enviar el correo de bienvenida: {str(e)}")
+
+        return render_template('login.html', msjAlert='Cuenta creada correctamente y correo de bienvenida enviado.', typeAlert=1)
+
+    return render_template('login.html', msjAlert='Registro de usuario no completado. ' + msg, typeAlert=0)
     
 # Cerrar session del usuario
 @autenticar.route('/logout')

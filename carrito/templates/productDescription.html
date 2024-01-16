@@ -17,16 +17,16 @@
 
 	{% if not loggedIn %}
 	<div id="signInButton">
-		<a class="link" href="/loginForm">Sign In</a>
+		<a class="link" href="/loginForm">{% trans %}Sign In{% endtrans %}</a>
 	</div>
 	{% else %}
 	<div class="dropdown">
 		<button class="dropbtn">Hello, <br>{{firstName}}</button>
 		<div class="dropdown-content">
-			<a href="/account/orders">Your orders</a>
-			<a href="/account/profile">Your profile</a>
+			<a href="/account/orders">{% trans %}Your orders{% endtrans %}</a>
+			<a href="/account/profile">{% trans %}Your profile{% endtrans %}</a>
 			<hr>
-			<a href="/logout">Sign Out</a>
+			<a href="/logout">{% trans %}Sign Out{% endtrans %}</a>
 		</div>
 	</div>
 	{% endif %}
@@ -46,26 +46,26 @@
 	</div>
 
 	<div id="productDescription">
-		<h2>Details</h2>
+		<h2>{% trans %}Details</h2>
 		<table id="descriptionTable">
 			<tr>
-				<td>Name</td>
+				<td>{% trans %}Name{% endtrans %}</td>
 				<td>{{data[1]}}</td>
 			</tr>
 			<tr>
-				<td>Price</td>
+				<td>{% trans %}Price{% endtrans %}</td>
 				<td>${{data[2]}}</td>
 			</tr>
 			<tr>
-				<td>Stock</td>
+				<td>{% trans %}Stock{% endtrans %}</td>
 				<td>{{data[5]}}</td>
 			</tr>
 		</table>
-		<h2>Description</h2>
+		<h2>{% trans %}Description{% endtrans %}</h2>
 		<p>{{data[3]}}</p>
 	</div>
 	<div id="addToCart">
-		<a href="/addToCart?productId={{request.args.get('productId')}}">Add to Cart</a>
+		<a href="/addToCart?productId={{request.args.get('productId')}}">{% trans %}Add to Cart{% endtrans %}</a>
 	</div>
 </div>
 </body>

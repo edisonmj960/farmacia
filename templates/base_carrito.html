@@ -42,9 +42,9 @@
 
           <div class="mx-auto" role="search">
             <form class="d-flex" role="search" action="{{ url_for('cliente.buscar') }}" method="post">
-              <input type="text" name="busqueda" class="form-control" placeholder="Buscar Medicamento"
+              <input type="text" name="busqueda" class="form-control" placeholder="{% trans %} Buscar Medicamento {% endtrans %}"
                 aria-label="Search">
-              <button type="submit">Buscar</button>
+              <button type="submit">{% trans %}Buscar{% endtrans %}</button>
             </form>
           </div>
 
@@ -59,11 +59,11 @@
                   <img src="/static/icons/user.png" alt="icon user" width="40" height="40" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small">
-                  <li><a class="dropdown-item" href="{{ url_for('cliente.datoscliente') }}">Mi Cuenta</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('cliente.datoscliente') }}">{% trans %}Mi Cuenta{% endtrans %}</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="{{ url_for('autenticar.logout') }}">Cerrar sesión</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('autenticar.logout') }}">{% trans %}Cerrar sesión{% endtrans %}</a></li>
                 </ul>
               </div>
             </div>
@@ -88,19 +88,19 @@
     <div class="nav-scroller mb-2">
       <nav class="nav d-flex justify-content-between ">
         <a class="p-2 link-secondary text-decoration-none" href="{{ url_for('cliente.medicamentoscliente') }}">
-          <i class="bi bi-pill-fill"></i> Medicamentos
+          <i class="bi bi-pill-fill"></i>{% trans %}Medicamentos{% endtrans %}
         </a>
         <a class="p-2 link-secondary text-decoration-none" href="{{ url_for('cliente.cuidadopersonalclient') }}">
-          <i class="bi bi-heart-fill"></i> Cuidado Personal
+          <i class="bi bi-heart-fill"></i>{% trans %}Cuidado Personal{% endtrans %}
         </a>
         <a class="p-2 link-secondary text-decoration-none" href="{{ url_for('cliente.dermacosmetica') }}">
-          <i class="bi bi-sun"></i> Dermacosmética
+          <i class="bi bi-sun"></i>{% trans %}Dermacosmética{% endtrans %}
         </a>
         <a class="p-2 link-secondary text-decoration-none" href="{{ url_for('cliente.nutricionales') }}">
-          <i class="bi bi-nut-fill"></i> Nutricionales
+          <i class="bi bi-nut-fill"></i>{% trans %}Nutricionales{% endtrans %}
         </a>
         <a class="p-2 link-secondary text-decoration-none" href="{{ url_for('cliente.bebemed') }}">
-          <i class="bi bi-baby-bottle-fill"></i> Bebé
+          <i class="bi bi-baby-bottle-fill"></i>{% trans %}Bebé{% endtrans %}
         </a>
       </nav>
     </div>
@@ -112,7 +112,7 @@
   {% if mensaje %}
   <br>
   <br>
-  <p class='text-center'>{{ mensaje }}</p>
+  <p class='text-center'> {% trans %} {{ mensaje }} {% endtrans %}</p>
   <br>
   <br>
   {% endif %}
@@ -129,7 +129,7 @@
             <h4 class="precios" style="color: orangered;">{{resultado[4]}}</h4>
             <div class="centrarButton" align="center">
               <a class="btn btn-primary  btn-sm" href="{{ url_for('cliente.comprarproducto') }}"
-                role="button">Comprar</a>
+                role="button">{% trans %}Comprar{% endtrans %}</a>
             </div>
           </div>
         </div>
@@ -157,9 +157,9 @@
                 <i class="fas fa-capsules me-3 text-secondary"></i>FARMACOP
 
               </h6>
-              <p>
-                Descubre la comodidad de cuidar tu salud desde casa con FARMACOP
-              </p>
+
+                <a href="#!" class="text-reset">{% trans %}Descubre la comodidad de cuidar tu salud desde casa con FARMACOP{% endtrans %}</a>
+              
             </div>
             <!-- Grid column -->
 
@@ -167,22 +167,22 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold mb-4">
-                Nosotros
+                {% trans %}Nosotros{% endtrans %}
               </h6>
               <p>
-                <a href="#!" class="text-reset">¿Quiénes somos?</a>
+                <a href="#!" class="text-reset">{% trans %}¿Quiénes somos?{% endtrans %}</a>
               </p>
               <p>
-                <a href="#!" class="text-reset">Preguntas Frecuentes</a>
+                <a href="#!" class="text-reset">{% trans %}Preguntas Frecuentes{% endtrans %}</a>
               </p>
               <p>
-                <a href="#!" class="text-reset">Políticas y Términos de Uso</a>
+                <a href="#!" class="text-reset">{% trans %}Políticas y Términos de Uso{% endtrans %}</a>
               </p>
               <p>
-                <a href="#!" class="text-reset">Políticas de Envíos</a>
+                <a href="#!" class="text-reset">{% trans %}Políticas de Envíos{% endtrans %}</a>
               </p>
               <p>
-                <a href="#!" class="text-reset">Trabaja con nosotros</a>
+                <a href="#!" class="text-reset">{% trans %}Trabaja con nosotros{% endtrans %}</a>
               </p>
             </div>
             <!-- Grid column -->
@@ -191,17 +191,17 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold mb-4">
-                Enlaces de interés
+                {% trans %}Enlaces de interés{% endtrans %}
               </h6>
               <p>
-                <a href="#!" class="text-reset">Superintendencia de industria y comercio
+                <a href="#!" class="text-reset">{% trans %}Superintendencia de industria y comercio{% endtrans %}
                 </a>
               </p>
               <p>
-                <a href="#!" class="text-reset">Superintendencia financiera</a>
+                <a href="#!" class="text-reset">{% trans %}Superintendencia financiera{% endtrans %}</a>
               </p>
               <p>
-                <a href="#!" class="text-reset">Cómo hacer un pedido en TDV</a>
+                <a href="#!" class="text-reset">{% trans %}Cómo hacer un pedido en TDV{% endtrans %}</a>
               </p>
 
             </div>
@@ -210,14 +210,14 @@
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">Contáctenos</h6>
-              <p><i class="fas fa-home me-3 text-secondary"></i> Ipiales Nariño, CALLE 234A</p>
+              <h6 class="text-uppercase fw-bold mb-4">{% trans %}Contáctenos{% endtrans %}</h6>
+              <p><i class="fas fa-home me-3 text-secondary"></i>{% trans %} Ipiales Nariño, CALLE 234A{% endtrans %}</p>
               <p>
                 <i class="fas fa-envelope me-3 text-secondary"></i>
                 FARMACOP@farma.com.co
               </p>
-              <p><i class="fas fa-phone me-3 text-secondary"></i> + 57 3136465306</p>
-              <p><i class="fas fa-print me-3 text-secondary"></i> + 57 3105084629</p>
+              <p><i class="fas fa-phone me-3 text-secondary"></i>{% trans %} + 57 3136465306{% endtrans %}</p>
+              <p><i class="fas fa-print me-3 text-secondary"></i>{% trans %} + 57 3105084629{% endtrans %}</p>
             </div>
             <!-- Grid column -->
           </div>
@@ -231,7 +231,7 @@
         <!-- Left -->
         <div class="d-flex justify-content-center">
           <div class="me-5 d-none d-lg-block">
-            <span>Síguenos en nuestras redes sociales</span>
+            <span>{% trans %}Síguenos en nuestras redes sociales{% endtrans %}</span>
           </div>
         </div>
         <div>
@@ -260,7 +260,7 @@
       <!-- Copyright -->
       <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
         © 2023 Copyright.
-        <a class="text-reset fw-bold">Todos los derechos reservados</a>
+        <a class="text-reset fw-bold">{% trans %}Todos los derechos reservados{% endtrans %}</a>
       </div>
       <!-- Copyright -->
     </footer>

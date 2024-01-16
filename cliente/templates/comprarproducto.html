@@ -15,13 +15,13 @@
           <div class="card-body">
             <h2 class="card-title">{{productId}}</h2>
             <h1 class="precios" style="color: orangered;">$00.00</h1>
-            <h5>Referencia: 123456789</h5>
+            <h5>{% trans %} Referencia: 123456789{% endtrans %}</h5>
             <p class="card-text">
-            <h5>DETALLES DEL PRODUCTO
+            <h5>{% trans %}DETALLES DEL PRODUCTO{% endtrans %}
             </h5>
             </p>
             <p class="card-text"><small class="text-muted">
-                <h5>Cantidad y vía de administración.</h5>
+                <h5>{% trans %}Cantidad y vía de administración.{% endtrans %}</h5>
               </small></p>
 
             <div class="py-1">
@@ -39,7 +39,7 @@
               </button>
               <div id="agregar" class="btn btn-success">
                 <a type='submit' href="/agregar?productId={{request.args.get('productId')}}"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Comprar</a>
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">{% trans %}Comprar{% endtrans %}</a>
               </div>
 
             </div>
@@ -54,12 +54,12 @@
 
 <div class="container">
   <div class="card">
-    <h5 class="card-header">Descripción del producto</h5>
+    <h5 class="card-header">{% trans %}Descripción del producto{% endtrans %}</h5>
     <div class="card-body">
-      <h5 class="card-title">Nombre del producto.</h5>
-      <p class="card-text">Indicaciones:
+      <h5 class="card-title">{% trans %}Nombre del producto.{% endtrans %}</h5>
+      <p class="card-text">{% trans %}Indicaciones:
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea id commodi, nam natus, debitis minima doloremque
-        adipisci atque praesentium vel accusantium, error ad laborum iste quisquam fugit qui veniam a.
+        adipisci atque praesentium vel accusantium, error ad laborum iste quisquam fugit qui veniam a.{% endtrans %}
       </p>
     </div>
   </div>

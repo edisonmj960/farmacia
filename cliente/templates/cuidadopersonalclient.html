@@ -1,5 +1,5 @@
 {% extends '/base_cliente_registrado.html' %}
-{% block title %}Cuidado Personal{% endblock %}
+{% block title %}{% trans %}Cuidado Personal{% endtrans %}{% endblock %}
 {% block content %}
 
 <div class="container">
@@ -16,7 +16,7 @@
           <p class="card-text">{{dato[2]}}</p>
           <h4 class="precios" style="color: orangered;">{{dato[4]}}</h4>
           <div class="centrarButton" align="center">
-            <a class="btn btn-primary  btn-sm" href="/agregar?productId={{dato[0]}}" role="button">Comprar</a>
+            <a class="btn btn-primary  btn-sm" href="/agregar?productId={{dato[0]}}" role="button">{% trans %}Comprar{% endtrans %}</a>
           </div>
         </div>
       </div>

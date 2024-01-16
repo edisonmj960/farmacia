@@ -27,7 +27,7 @@ import babel.dates
 
 
 
-UPLOAD_FOLDER = 'app/static/uploads'
+UPLOAD_FOLDER = os.path.abspath('static/uploads')
 ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -84,6 +84,7 @@ def registrar_producto():
         'infogen': gettext('A traves de esta seccion el administrador tiene los permisos para visualizar la cantidad de clientes y administradores registrados, asi como realizar operaciones de registro, modificacion y eliminacion de los productos ofrecidos por la farmacia, adicionalmente es capaz de generar reportes de ventas'),
 
     }
+
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     cantidad = request.form["cantidad"]
@@ -93,15 +94,21 @@ def registrar_producto():
     categoria = request.form["categoria"]
     
     imagen = request.files['imagen']
+    imagename = None  # Inicializando imagename con un valor por defecto
 
     if imagen and allowed_file(imagen.filename):
         filename = secure_filename(imagen.filename)
-        
+        # Imprime la ruta para verificarla
+        print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                # Guardar la imagen en la ruta absoluta
         imagen.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         imagename = filename
-    controller.insertar_producto(nombre, descripcion, cantidad, precio,proveedor,fecha_vencimiento,imagename,categoria)
-    # De cualquier modo, y si todo fue bien, redireccionar
-    return render_template("home.html",dataLogin= dataLoginSesion(),**dict(translations.items()))
+
+    
+
+    controller.insertar_producto(nombre, descripcion, cantidad, precio, proveedor, fecha_vencimiento, imagename, categoria)
+    
+    return render_template("home.html", dataLogin=dataLoginSesion(), **dict(translations.items()))
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -1087,7 +1094,7 @@ def registerUser():
             conexion.commit()
             cursor.close()
             msg = 'Cuenta creada correctamente!'
-
+    
         return render_template('login.html', msjAlert= msg, typeAlert=1)
     return render_template('login.html', dataLogin= dataLoginSesion(), msjAlert = msg, typeAlert=0)
 

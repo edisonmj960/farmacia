@@ -1,1 +1,1 @@
-web: gunicorn flask_app.py:app
+web: npm start

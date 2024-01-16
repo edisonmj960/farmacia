@@ -33,17 +33,20 @@
             <a href="{{ url_for('cliente.index') }}"
               class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
               <img src="/static/icons/pharmacy.png" width="50" height="50" alt="">
-              <span class="fs-5">FARMACOP</span>
+              <span class="fs-5">FARMACOP </span>
             </a>
           </div>
 
+          
+
           <div class="mx-auto" role="search">
             <form class="d-flex" role="search" action="{{ url_for('cliente.buscar') }}" method="post">
-              <input type="text" name="busqueda" class="form-control" placeholder="Buscar Medicamento"
+              <input type="text" name="busqueda" class="form-control" placeholder="{% trans %} Buscar Medicamento{% endtrans %}"
                 aria-label="Search">
-              <button type="submit">Buscar</button>
+              <button type="submit">{% trans %}Buscar{% endtrans %}</button>
             </form>
           </div>
+
 
 
 
@@ -56,11 +59,24 @@
                 </a>
 
                 <ul class="dropdown-menu text-small">
-                  <li><a class="dropdown-item" href="{{ url_for('autenticar.login') }}">Iniciar Sesión</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('autenticar.login') }}">{% trans %}Iniciar Sesión{% endtrans %}</a></li>
                 </ul>
+
               </div>
             </div>
           </div>
+
+          <div>
+            <form method="get" action="{{ url_for('change_language', lang='es') }}">
+              <button type="submit" class="btn btn-link">Español</button>
+          </form>
+          
+          <form method="get" action="{{ url_for('change_language', lang='en') }}">
+              <button type="submit" class="btn btn-link">English</button>
+          </form>
+            
+        </div>
+
         </div>
         </form>
       </div>
@@ -88,9 +104,7 @@
               <i class="fas fa-capsules me-3 text-secondary"></i>FARMACOP
 
             </h6>
-            <p>
-              Descubre la comodidad de cuidar tu salud desde casa con FARMACOP
-            </p>
+              <a href="#!" class="text-reset">{% trans %}Descubre la comodidad de cuidar tu salud desde casa con FARMACOP{% endtrans %}</a>
           </div>
           <!-- Grid column -->
 
@@ -98,22 +112,22 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Nosotros
+              {% trans %}Nosotros{% endtrans %}
             </h6>
             <p>
-              <a href="#!" class="text-reset">¿Quiénes somos?</a>
+              <a href="#!" class="text-reset">{% trans %}¿Quiénes somos?{% endtrans %}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Preguntas Frecuentes</a>
+              <a href="#!" class="text-reset">{% trans %}Preguntas Frecuentes{% endtrans %}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Políticas y Términos de Uso</a>
+              <a href="#!" class="text-reset">{% trans %}Políticas y Términos de Uso{% endtrans %}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Políticas de Envíos</a>
+              <a href="#!" class="text-reset">{% trans %}Políticas de Envíos{% endtrans %}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Trabaja con nosotros</a>
+              <a href="#!" class="text-reset">{% trans %}Trabaja con nosotros{% endtrans %}</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -121,18 +135,17 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Enlaces de interés
-            </h6>
+            <h6 class="text-uppercase fw-bold mb-4">{% trans %}Enlaces de Interés{% endtrans %}</h6>
             <p>
-              <a href="#!" class="text-reset">Superintendencia de industria y comercio
+              <a href="#!" class="text-reset">{% trans %}Superintendencia de industria y comercio{% endtrans %}
               </a>
+              
             </p>
             <p>
-              <a href="#!" class="text-reset">Superintendencia financiera</a>
+              <a href="#!" class="text-reset">{% trans %}Superintendencia financiera{% endtrans %}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Cómo hacer un pedido en TDV</a>
+              <a href="#!" class="text-reset">{% trans %}Cómo hacer un pedido en TDV{% endtrans %}</a>
             </p>
 
           </div>
@@ -141,7 +154,7 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Contáctenos</h6>
+            <h6 class="text-uppercase fw-bold mb-4">{% trans %}Contáctenos{% endtrans %}</h6>
             <p><i class="fas fa-home me-3 text-secondary"></i> Ipiales Nariño, CALLE 234A</p>
             <p>
               <i class="fas fa-envelope me-3 text-secondary"></i>
@@ -162,7 +175,7 @@
       <!-- Left -->
       <div class="d-flex justify-content-center">
         <div class="me-5 d-none d-lg-block">
-          <span>Síguenos en nuestras redes sociales</span>
+          <span>Siguenos en nuestras redes sociales</span>
         </div>
       </div>
       <div>

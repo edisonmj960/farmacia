@@ -41,7 +41,7 @@
           <p class="card-text">{{dato[2]}}</p>
           <h4 class="precios" style="color: orangered;">{{dato[4]}}</h4>
           <div class="centrarButton" align="center">
-            <a class="btn btn-primary  btn-sm" href="{{ url_for('autenticar.login') }}" role="button">Comprar</a>
+            <a class="btn btn-primary  btn-sm" href="{{ url_for('autenticar.login') }}" role="button">{% trans %}Comprar{% endtrans %}</a>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
 
   <!-- BOTÓN VER MÁS -->
   <div align="center" class="py-3">
-    <a class="btn btn-primary  btn-sm" href="{{ url_for('autenticar.login') }}" role=" button">Ver más</a>
+    <a class="btn btn-primary  btn-sm" href="{{ url_for('autenticar.login') }}" role=" button">{% trans %}Ver más{% endtrans %}</a>
   </div>
   <hr>
 </div>
