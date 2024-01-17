@@ -140,7 +140,7 @@ mysql-connector-python==8.0.32
 
 mysqlclient==2.1.1
 
-nb-black>=1.0.7
+yapf>=0.28, python_version < '3.6'
 
 nbclassic==0.4.8
 
