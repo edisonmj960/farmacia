@@ -2,10 +2,6 @@ alembic
 
 anyio
 
-argon-cffi
-
-argon-cffi-bindings
-
 art
 
 Artisan
