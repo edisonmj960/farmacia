@@ -10,7 +10,7 @@ asttokens
 
 attrs
 
-autopep
+autopep8
 
 Babel
 
